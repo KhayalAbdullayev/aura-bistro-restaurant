@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
-const Header = () => {
+const Header = ({ onOpenAuthModal }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -9,6 +11,11 @@ const Header = () => {
     { name: 'Reservation', href: '#reservation' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleLogout = () => {
+    logout();
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-dark text-white">
@@ -20,7 +27,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -33,6 +40,26 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Auth Section */}
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-secondary font-medium">Welcome, {user.name}</span>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-secondary hover:bg-orange-600 rounded-lg font-medium transition-colors"
+                >
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={onOpenAuthModal}
+                className="px-4 py-2 bg-secondary hover:bg-orange-600 rounded-lg font-medium transition-colors"
+              >
+                Sign In / Register
+              </button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -75,6 +102,29 @@ const Header = () => {
                   </a>
                 </li>
               ))}
+              <li className="border-t border-white/20 pt-4">
+                {user ? (
+                  <div className="flex flex-col gap-3">
+                    <span className="text-secondary font-medium">Welcome, {user.name}</span>
+                    <button
+                      onClick={handleLogout}
+                      className="px-4 py-2 bg-secondary hover:bg-orange-600 rounded-lg font-medium transition-colors text-center"
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      onOpenAuthModal();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="px-4 py-2 bg-secondary hover:bg-orange-600 rounded-lg font-medium transition-colors text-center"
+                  >
+                    Sign In / Register
+                  </button>
+                )}
+              </li>
             </ul>
           </div>
         )}
