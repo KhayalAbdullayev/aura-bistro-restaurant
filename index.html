@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Bistro - Fine Dining Experience</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">
+                <h2>Aura Bistro</h2>
+            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reservation">Reservation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Welcome to Aura Bistro</h1>
+            <p class="tagline">Experience culinary excellence in an elegant atmosphere</p>
+            <a href="#reservation" class="cta-button">Reserve Your Table</a>
+        </section>
+
+        <section id="about">
+            <h2>About Aura Bistro</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2015, Aura Bistro has been a cornerstone of fine dining in our community. Our commitment to using locally-sourced, seasonal ingredients ensures that every dish tells a story of quality and passion.</p>
+                    <p>Our executive chef brings over 20 years of culinary experience from some of the world's most renowned kitchens. Each plate is crafted with meticulous attention to detail, combining traditional techniques with modern innovation.</p>
+                    <p>At Aura Bistro, we believe that great food is meant to be shared. Whether you're celebrating a special occasion or enjoying a casual evening with friends, our warm ambiance and exceptional service will make your visit memorable.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Aura Bistro Interior">
+                </div>
+            </div>
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            
+            <article class="menu-category">
+                <h3>Starters</h3>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Truffle Bruschetta</h4>
+                        <p>Toasted sourdough with truffle-infused ricotta, wild honey, and microgreens</p>
+                    </div>
+                    <span class="price">$14</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Seared Scallops</h4>
+                        <p>Pan-seared Atlantic scallops with citrus beurre blanc and crispy pancetta</p>
+                    </div>
+                    <span class="price">$18</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Burrata Salad</h4>
+                        <p>Fresh burrata with heirloom tomatoes, basil pesto, and aged balsamic</p>
+                    </div>
+                    <span class="price">$16</span>
+                </article>
+            </article>
+
+            <article class="menu-category">
+                <h3>Mains</h3>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Herb-Crusted Lamb Rack</h4>
+                        <p>New Zealand lamb with rosemary crust, served with fondant potatoes and red wine jus</p>
+                    </div>
+                    <span class="price">$42</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Pan-Seared Sea Bass</h4>
+                        <p>Chilean sea bass with saffron risotto, asparagus, and lemon butter sauce</p>
+                    </div>
+                    <span class="price">$38</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Filet Mignon</h4>
+                        <p>8oz prime beef tenderloin with truffle mashed potatoes and grilled vegetables</p>
+                    </div>
+                    <span class="price">$45</span>
+                </article>
+            </article>
+
+            <article class="menu-category">
+                <h3>Desserts</h3>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Chocolate Fondant</h4>
+                        <p>Warm dark chocolate cake with molten center, served with vanilla bean ice cream</p>
+                    </div>
+                    <span class="price">$12</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Lemon Tart</h4>
+                        <p>Classic French lemon tart with torched meringue and fresh berries</p>
+                    </div>
+                    <span class="price">$10</span>
+                </article>
+                <article class="menu-item">
+                    <div class="menu-item-info">
+                        <h4>Crème Brûlée</h4>
+                        <p>Traditional vanilla custard with caramelized sugar crust</p>
+                    </div>
+                    <span class="price">$11</span>
+                </article>
+            </article>
+        </section>
+
+        <section id="reservation">
+            <h2>Make a Reservation</h2>
+            <div class="reservation-content">
+                <p class="reservation-text">Book your table at Aura Bistro and let us create an unforgettable dining experience for you.</p>
+                <form action="#" method="POST" class="reservation-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Select guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7+">7+ Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Submit Reservation</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Business Hours</h3>
+                <p>Monday - Thursday: 5:00 PM - 10:00 PM</p>
+                <p>Friday - Saturday: 5:00 PM - 11:00 PM</p>
+                <p>Sunday: 4:00 PM - 9:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>123 Culinary Avenue</p>
+                <p>Gourmet District, GD 12345</p>
+                <p>Phone: (555) 123-4567</p>
+                <p>Email: info@aurabistro.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>Instagram: @aurabistro</p>
+                <p>Facebook: Aura Bistro</p>
+                <p>Twitter: @aurabistro_official</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Aura Bistro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
