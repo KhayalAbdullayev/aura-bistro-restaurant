@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuantityStepper from './QuantityStepper';
 
-const MenuItem = ({ item }) => {
-  const [quantity, setQuantity] = useState(0);
+const MenuItem = ({ item, onQuantityChange, initialQuantity = 0 }) => {
+  const [quantity, setQuantity] = useState(initialQuantity);
+
+  useEffect(() => {
+    setQuantity(initialQuantity);
+  }, [initialQuantity]);
 
   const handleIncrement = () => {
-    setQuantity(prev => prev + 1);
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    if (onQuantityChange) {
+      onQuantityChange(item.id, newQuantity);
+    }
   };
 
   const handleDecrement = () => {
-    setQuantity(prev => Math.max(0, prev - 1));
+    const newQuantity = Math.max(0, quantity - 1);
+    setQuantity(newQuantity);
+    if (onQuantityChange) {
+      onQuantityChange(item.id, newQuantity);
+    }
   };
 
   const subtotal = quantity * item.price;

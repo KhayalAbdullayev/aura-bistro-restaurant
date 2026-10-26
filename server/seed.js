@@ -98,6 +98,34 @@ async function seedDatabase() {
       )
     `);
 
+    // Drop existing order tables to recreate with correct schema
+    console.log('Dropping existing order tables...');
+    await pool.query('DROP TABLE IF EXISTS order_items CASCADE');
+    await pool.query('DROP TABLE IF EXISTS orders CASCADE');
+
+    // Recreate orders table
+    await pool.query(`
+      CREATE TABLE orders (
+        id SERIAL PRIMARY KEY,
+        user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        total_amount NUMERIC(10, 2) NOT NULL,
+        status VARCHAR(50) DEFAULT 'pending',
+        stripe_session_id VARCHAR(255) UNIQUE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
+    // Recreate order_items table
+    await pool.query(`
+      CREATE TABLE order_items (
+        id SERIAL PRIMARY KEY,
+        order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+        menu_item_id INTEGER REFERENCES menu_items(id),
+        quantity INTEGER NOT NULL,
+        unit_price NUMERIC(10, 2) NOT NULL
+      )
+    `);
+
     console.log('Tables created or already exist.');
 
     // Clear existing menu items
