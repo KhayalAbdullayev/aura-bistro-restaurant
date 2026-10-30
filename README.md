@@ -367,5 +367,5 @@ npm start
 
 ## License
 
-© 2024 Aura Bistro. All rights reserved.
+© 2026 Aura Bistro. All rights reserved.
 
